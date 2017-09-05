@@ -1,0 +1,19 @@
+#!/bin/bash
+# @file system_info
+# @brief A simple bash script to print out system information.
+# @author Snehal Sanghvi
+# @date September 4 2017
+# @version 1.0
+
+echo "System information:"
+echo "--------------------------------"
+echo "Operating system type:"  $(uname -o)
+echo "OS Distribution:"  $(cat /etc/*release| grep 'DISTRIB_ID' |cut -c12-) $(cat /etc/*release | grep 'DISTRIB_RELEASE' | cut -c17-)
+echo "Kernel version:" $(uname -r)
+echo "Information on kernel build:" $(uname -s) $(uname -r) $(uname -v)
+echo "Kernel gcc version build:" $(cat /proc/version | grep -o -P '.gcc.{0,15}' | cut -c14-)
+echo "Kernel build time:" $(uname -v|cut -c8-)
+echo "System Architecture:" $(uname -m)
+echo "--------------------------------"
+
+#end of file
