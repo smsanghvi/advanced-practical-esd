@@ -1,0 +1,8 @@
+This is a library for implementation of the circular buffer.
+Circular_buffer.h is the header which contains function prototypes of all features implemented.
+These are the operations that have been implemented: Allocate dynamic memory for given number of data items, add data item, remove a data item, destroy the circular buffer, dump all the data contents and return size of the circular buffer.
+Circular_buffer.c is the source file having definitions for all the above features.
+main.c is the main that needs to be executed and it gives an idea on how to implement function calls for this created library.
+I used gcc compiler for my compilation.
+
+Sample run: gcc -o main Circular_buffer.c main.c
