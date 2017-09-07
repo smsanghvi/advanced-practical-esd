@@ -1,0 +1,15 @@
+#!/bin/bash
+# @author : Snehal Sanghvi
+# @date : Septemner 7, 2017
+# @brief : A bash script to setup environment on a new machine
+# @version 1.0
+ 
+echo "Starting environment setup process"
+echo "------------------------------------------"
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git-all gitk gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gcc-arm-none-eabi vim
+sudo apt-get update
+echo "Successfully installed git-all, gitk, gcc-arm-linux-gnueabi, gcc-arm-linux-gnueabihf, gcc-arm-none-eabi, vim"
+echo "Setup complete"
+echo "------------------------------------------"

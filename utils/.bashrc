@@ -118,6 +118,7 @@ if [ $UID -ne 0 ]; then
     alias update='sudo apt-get update && sudo apt-get upgrade'
     alias clean='sudo apt-get clean'
     alias autoremove='sudo apt-get autoremove'
+    alias instal='sudo apt-get install'
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
