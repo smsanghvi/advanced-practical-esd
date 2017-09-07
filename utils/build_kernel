@@ -1,0 +1,68 @@
+#!/bin/bash
+# @author : Snehal Sanghvi
+# @date : Septemner 7, 2017
+# @brief : A bash script to compile the linux kernel 4.12.11 (stable) with a single command
+# @version 1.0
+
+echo "Starting the compilation process of linux kernel 4.12.11 (Stable)"
+echo "----------------------------------------------------------------------"
+echo "Downloading the linux kernel from source ..."
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.12.11.tar.xz
+echo "Download complete!"
+echo "Installing and updating dependencies ..."
+sudo apt-get install git gcc make exuberant-ctags fakeroot 
+sudo apt-get install build-essential libncurses5-dev xz-utils libssl-dev bc
+sudo apt-get update
+echo "Installed dependencies."
+echo "Extracting the tarball ..."
+tar -xvJf linux-4.12.11.tar.xz
+echo "Extraction complete."
+cd linux-4.12.11
+echo "Creating kernel config file ..."
+make menuconfig
+echo "Starting the build ..." 
+echo "This should take a few hours. Find something fun to do ..."
+sudo make 
+echo "Build process complete!"
+echo "Building the modules ..."
+sudo make modules_install
+sudo make install
+echo "Completed installing the modules."
+echo "Updating GRUB ..."
+sudo update-grub
+sudo update-grub2
+echo "Updating GRUB completed."
+echo "System going down to reboot ..."
+reboot &
+echo "Please check if your kernel was installed by running 'cd \boot' from command line." 
+echo "Your current kernel version booted is:" $(uname -r) 
+echo "If you did not see your compiled and installed kernel in GRUB on bootup, you might need to perform boot repair."
+echo "Here are the steps for boot repair:"
+echo "sudo add-apt-repository ppa:yannubuntu/boot-repair"
+echo "sudo apt-get update"
+echo "sudo apt-get install -y boot-repair && boot-repair"
+echo "Here is documentation on how to perform it: https://help.ubuntu.com/community/Boot-Repair"
+echo "Build process over." 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

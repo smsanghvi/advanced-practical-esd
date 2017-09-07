@@ -119,6 +119,7 @@ if [ $UID -ne 0 ]; then
     alias clean='sudo apt-get clean'
     alias autoremove='sudo apt-get autoremove'
     alias instal='sudo apt-get install'
+    alias purge='sudo apt-get purge'
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
