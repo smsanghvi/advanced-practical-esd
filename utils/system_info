@@ -5,15 +5,19 @@
 # @date September 4 2017
 # @version 1.0
 
-echo "System information:"
-echo "--------------------------------"
-echo "Operating system type:"  $(uname -o)
-echo "OS Distribution:"  $(cat /etc/*release| grep 'DISTRIB_ID' |cut -c12-) $(cat /etc/*release | grep 'DISTRIB_RELEASE' | cut -c17-)
-echo "Kernel version:" $(uname -r)
-echo "Information on kernel build:" $(uname -s) $(uname -r) $(uname -v)
-echo "Kernel gcc version build:" $(cat /proc/version | grep -o -P '.gcc.{0,15}' | cut -c14-)
-echo "Kernel build time:" $(uname -v|cut -c8-)
-echo "System Architecture:" $(uname -m)
-echo "--------------------------------"
+
+FILE="system_data.txt"
+
+echo "Dumped all the system data to a file called system_data.txt"
+echo "System information:" >> $FILE
+echo "----------------------------------------" >> $FILE
+echo "Operating system type:"  $(uname -o) >> $FILE
+echo "OS Distribution:"  $(cat /etc/*release| grep 'DISTRIB_ID' |cut -c12-) $(cat /etc/*release | grep 'DISTRIB_RELEASE' | cut -c17-) >> $FILE
+echo "Kernel version:" $(uname -r) >> $FILE
+echo "Information on kernel build:" $(uname -s) $(uname -r) $(uname -v) >> $FILE
+echo "Kernel gcc version build:" $(cat /proc/version | grep -o -P '.gcc.{0,15}' | cut -c14-) >> $FILE
+echo "Kernel build time:" $(uname -v|cut -c8-) >> $FILE
+echo "System Architecture:" $(uname -m) >> $FILE
+echo "----------------------------------------" >> $FILE
 
 #end of file
