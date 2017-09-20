@@ -1,0 +1,6 @@
+To load the kernel module, run the following steps:
+
+- Copy the folder to your home directory
+- Load the module by : 'sudo insmod timer_module.ko'
+- Unload the module bu : 'sudo rmmod timer_module'
+- Check the kernel log output in dmesg by running : 'dmesg'
