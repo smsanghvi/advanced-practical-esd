@@ -1,0 +1,25 @@
+Directions on how to run the files:
+
+- Modify the syscalls.h file inside <your-linux-kernel-source>/include/linux/ and append the function declaration for our system call: 'asmlinkage long sys_sort_buffer(__s32 *user_buffer, __s32 len, __s32 *result);' at the bottom of the file.
+
+- Modify the syscall_64.tbl file inside your <your-linux-kernel-source>/arch/x86/entry/syscalls/ folder and add a unique system call id at the bottom : '<unique-id> 64 sort_buffer sys_sort_buffer'
+
+- Modify the Makefile in your <your-linux-kernel-source> and to the core-y option, append : 'sort_buffer/'
+
+- Create a new directory in the linux source folder for your system call and copy the provided sort_buffer_systemcall folder into it.
+
+- Run the following commands from the linux source folder:
+	- sudo make defconfig
+	- sudo make -j4 (assuming 4 cores)
+	- sudo make install
+	- sudo reboot
+
+- To check your implemented system call, create a new directory in your home folder and copy the provided sort_buffer_testing folder into it
+
+- Change the INPUT_SIZE macro in the testprog.c source file in it for a specific array size. Providing any size below 256 will result in an error in the system call.
+
+- After saving your changes, compile using : 'gcc -Wall -Werror testprog.c -o testprog'
+
+- Run your test program by : './testprog'
+
+- Check the log that gets printed and verify that the operation was successful. Also check dmesg for the system call kernel log : 'dmesg'
