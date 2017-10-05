@@ -1,0 +1,21 @@
+The code in profiling.c essentially measures the time it takes to create a process using fork+exec and a thread created using pthread_create.
+
+Instructions to run:
+1> To run for the fork_exec, use the macro FORK_EXECV_PROCESS.
+   $gcc child.c -o child
+   $gcc profiling.c -o profiling
+   $./profiling
+
+2> To run for the pthread_create, use the macro PTHREAD_CREATE.
+   $gcc profiling.c -pthread -o profiling
+   $./profiling
+
+3> Compare their execution times.
+
+The code in kernel_profiling.c measures the time it takes to create a kernel thread by making use of the do_gettimeofday method in kernel space.
+This code is implemented as a kernel module. 
+Steps to execute:
+1> $make
+2> $sudo insmod kernel_profiling.ko
+3> $sudo rmmod kernel_profiling
+4> dmesg
