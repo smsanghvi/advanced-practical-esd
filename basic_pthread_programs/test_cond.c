@@ -1,3 +1,24 @@
+/*****************************************************************************
+​ * ​ ​ Copyright​ ​ (C)​ ​ 2017​ ​ by​ ​ Snehal Sanghvi
+​ *
+​ * ​ ​ Redistribution,​ ​ modification​ ​ or​ ​ use​ ​ of​ ​ this​ ​ software​ ​ in​ ​ source​ ​ or​ ​ binary
+​ * ​ ​ forms​ ​ is​ ​ permitted​ ​ strictly for educational purposes.​ ​ Users​ ​ are
+​ * ​ ​ permitted​ ​ to​ ​ modify​ ​ this​ ​ and​ ​ use​ ​ it​ ​ to​ ​ learn​ ​ about​ ​ the​ ​ field​ ​ of​ ​ embedded
+​ * ​ ​ software.​ ​ Snehal Sanghvi​ ​ and​ ​ the​ ​ University​ ​ of​ ​ Colorado​ ​ are​ ​ not​ ​ liable​ ​ for
+​ * ​ ​ any​ ​ misuse​ ​ of​ ​ this​ ​ material.
+​ *
+*****************************************************************************/
+/**
+​ * ​ ​ @file​ ​ test_cond.c
+​ * ​ ​ @brief​ ​ An implementation source code file having function calls for various 
+ *           pthread API functions involving conditional variables like pthread_cond_init,
+ *           pthread_cond_wait, pthread_cond_signal, pthread_cond_destroy
+​​ * ​ ​ @author​ ​ Snehal Sanghvi
+​ * ​ ​ @date​ ​ October ​ 4 ​ ​ 2017
+​ * ​ ​ @version​ ​ 1.0
+​ *   @compiler used to process code: GCC compiler
+​ */
+
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdlib.h>
