@@ -1,0 +1,18 @@
+Instructions to execute:
+$make
+$./main
+
+On being prompted for a file name, enter a file name eg. file1
+You would then need to enter data from the command line.
+Once done entering data, press Ctrl+D to mark the end of data entry.
+You will be proimpted to enter a signal USR1. To do this, open a new cmd window.
+Type $ps -ef
+Locate the PID for your executable and type $kill -SIGUSR1 <PID>
+Now type $kill -SIGUSR2 <PID>
+The statistics of the program like number of characters, words and lines will be displayed on the stdout.
+
+Brief: An implementation source code file having 3 threads executing within a process to implement the feature of 
+multithreaded file io using signals.This program makes use of a producer-consumer model wherein the parent thread
+accepts file data from the user at command line and on receving a user signal spawns a new thread to process the 
+user data to generate number of characters, words and lines. On receiving another signal from the user, the 
+statistics are printed out to the console window. 

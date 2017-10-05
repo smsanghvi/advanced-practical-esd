@@ -7,7 +7,7 @@
 ​ * ​ ​ @file​ ​ kernel_ll.c
 ​ * ​ ​ @brief​ ​ Source file for creating a simple kernel module that lists all processes
  *            from current process, backtracing to the inittask. Prints out all PIDs,
-              process states and number of children for each process.
+ *             process states and number of children for each process.
 ​​ * ​ ​ @author​ ​ Snehal Sanghvi
 ​ * ​ ​ @date​ ​ October ​ 2 ​ 2017
 ​ * ​ ​ @version​ ​ 1.0
