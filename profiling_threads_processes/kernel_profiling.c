@@ -27,8 +27,6 @@
 #include <linux/sched/signal.h>
 #include <linux/ktime.h>
 
-//reference: http://practicepeople.blogspot.com/2013/10/kernel-programming-7-ktimeget-and.html
-
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Snehal");
 MODULE_DESCRIPTION("Module to profile kernel thread");
