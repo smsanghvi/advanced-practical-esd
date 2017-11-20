@@ -36,7 +36,11 @@ static int my_atoi(char *str){
 
 int main(void){
 	int fd;
-	char gpio_buffer[10];
+	char data_buffer[100];
+	char *data_ptr;
+	char *extract_led;
+	char *extract_freq;
+	char *extract_duty;
 	char choice[10];
 	char data[50];
 	char message[100];
@@ -56,9 +60,14 @@ int main(void){
 	printf("0 for LED control\n");
 	printf("1 for setting frequency\n");
 	printf("2 for setting duty cycle\n");
-	printf("3 to exit\n");
+	printf("3 for reading all state variables\n");
+	printf("4 for reading LED status\n");
+	printf("5 for reading frequency value\n");
+	printf("6 for reading duty cycle value\n");			
+	printf("7 to exit\n");
 	scanf( "%s", choice );
-	while(my_atoi(choice) != 3){
+	
+	while(my_atoi(choice) != 7 && my_atoi(choice)>=0){
 		printf("Your choice is: %s \n", choice );
 
 		//LED on/off
@@ -96,17 +105,68 @@ int main(void){
 			}
 			sprintf(message, "%s %d %s", choice, strlen(data)+1, data);
 			write(fd, message, strlen(message));
+		}	
+		//reading all state variables
+		if(my_atoi(choice)==3){
+			memset(data, 0, sizeof(data));
+			sprintf(message, "%s", choice);
+			write(fd, message, strlen(message));
+			read( fd, data_buffer, 100);
+			data_ptr = data_buffer;
+			extract_led = strsep(&data_ptr, " ");
+			extract_freq = strsep(&data_ptr, " ");
+			extract_duty = strsep(&data_ptr, " \n");
+			printf("\nState variables status:\n");
+			printf("-----------------------------\n");
+			printf("LED Status : %s\n", extract_led);
+			printf("Frequency value : %s Hz\n", extract_freq);
+			printf("Duty Cycle : %s%\n", extract_duty);
 		}		
-		printf("\nPlease enter choice: \t");
+		//reading LED status
+		if(my_atoi(choice)==4){
+			memset(data, 0, sizeof(data));
+			sprintf(message, "%s", choice);
+			write(fd, message, strlen(message));
+			read( fd, data_buffer, 100);
+			data_ptr = data_buffer;
+			extract_led = strsep(&data_ptr, " ");
+			printf("\nLED Status : %s\n", extract_led);
+		}		
+		//reading all state variables
+		if(my_atoi(choice)==5){
+			memset(data, 0, sizeof(data));
+			sprintf(message, "%s", choice);
+			write(fd, message, strlen(message));
+			read( fd, data_buffer, 100);
+			data_ptr = data_buffer;
+			extract_freq = strsep(&data_ptr, " ");
+			printf("\nFrequency value : %s Hz\n", extract_freq);
+		}		
+		//reading all state variables
+		if(my_atoi(choice)==6){
+			memset(data, 0, sizeof(data));
+			sprintf(message, "%s", choice);
+			write(fd, message, strlen(message));
+			read( fd, data_buffer, 100);
+			data_ptr = data_buffer;
+			extract_duty = strsep(&data_ptr, " \n");
+			printf("\nDuty Cycle : %s%\n", extract_duty);
+		}		
+
+		printf("\nPlease enter choice: \n");
+		printf("------------------------------\n");
+		printf("0 for LED control\n");
+		printf("1 for setting frequency\n");
+		printf("2 for setting duty cycle\n");
+		printf("3 for reading all state variables\n");
+		printf("4 for reading LED status\n");
+		printf("5 for reading frequency value\n");
+		printf("6 for reading duty cycle value\n");			
+		printf("7 to exit\n");
 		scanf( "%s", choice );	
 	}
-
-	read( fd, gpio_buffer, 2);
-	printf("GPIO value is: %s \n", gpio_buffer );
  
-	if( 0 != close(fd) ){
-		printf("Could not close device\n");
-	}
+	close(fd);
  
 	return 0;
 }
