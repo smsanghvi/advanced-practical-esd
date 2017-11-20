@@ -1,3 +1,17 @@
+/*****************************************************************************
+​ * ​ ​ Copyright​ ​ (C)​ ​ 2017​ ​ by​ ​ Snehal Sanghvi
+​ *   Users​ ​ are  permitted​ ​ to​ ​ modify​ ​ this​ ​ and​ ​ use​ ​ it​ ​ to​ ​ learn​ ​ about​ ​ the​ ​ field​ ​ of​ ​ embedded ​ software.​ ​ Snehal Sanghvi​ ​ and​ ​ the​ ​ University​ ​ of​ ​ Colorado​ ​ are​ ​ not​ ​ liable​ ​ for​ ​ any​ ​ misuse​ ​ of​ ​ this​ ​ material.
+​ *
+*****************************************************************************/
+/**
+​ * ​ ​ @file​ ​ gpio_user.c
+​ * ​ ​ @brief​ ​ User space application to test LED driver.
+​​ * ​ ​ @author​ ​ Snehal Sanghvi
+​ * ​ ​ @date​ ​ November ​ 19 ​ 2017
+​ * ​ ​ @version​ ​ 1.0
+​ *   @compiler used to process code: GCC compiler
+​ */
+
 #include<stdio.h>
 #include <unistd.h>
 #include <stdlib.h>

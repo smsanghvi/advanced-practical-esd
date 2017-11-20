@@ -1,3 +1,18 @@
+/*****************************************************************************
+​ * ​ ​ Copyright​ ​ (C)​ ​ 2017​ ​ by​ ​ Snehal Sanghvi
+​ *   Users​ ​ are  permitted​ ​ to​ ​ modify​ ​ this​ ​ and​ ​ use​ ​ it​ ​ to​ ​ learn​ ​ about​ ​ the​ ​ field​ ​ of​ ​ embedded ​ software.​ ​ Snehal Sanghvi​ ​ and​ ​ the​ ​ University​ ​ of​ ​ Colorado​ ​ are​ ​ not​ ​ liable​ ​ for​ ​ any​ ​ misuse​ ​ of​ ​ this​ ​ material.
+​ *
+*****************************************************************************/
+/**
+​ * ​ ​ @file​ ​ led_driver.c
+​ * ​ ​ @brief​ ​ Character driver to perform gpio operations to control LED.
+​​ * ​ ​ @author​ ​ Snehal Sanghvi
+​ * ​ ​ @date​ ​ November ​ 19 ​ 2017
+​ * ​ ​ @version​ ​ 1.0
+​ *   @compiler used to process code: GCC compiler
+​ */
+
+
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/init.h>
